@@ -6,7 +6,9 @@ class Country;
 class Node {
 public:
   Node * getNext() const;
+  Node* getPrevious() const;
   void setNext(Node *in) { this->next = in; }
+  void setPrevious(Node *in) { this->previous = in; }
   Country * getValue() const { return this->value; }
   Node();
   Node(Country *in);
@@ -14,6 +16,7 @@ public:
 
 private:
   Node *next;
+  Node *previous;
   Country *value;
 };
 

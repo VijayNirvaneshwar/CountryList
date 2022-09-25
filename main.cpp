@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
   l1->print(); // Australia, ... Trinidad
   l1->removeFront();
   l1->print(); // Sri Lanka, ... Trinidad
-  l1->removeEnd();
+  l1->removeEnd(); // Goes through entire lists adding to execution time
   l1->print(); // Sri ... Canada
 
   CountryList *l_alphabetical = new CountryList();
@@ -34,7 +34,7 @@ int main(int argc, char **argv) {
   l_alphabetical->add(c2);
   l_alphabetical->add(c6);
   l_alphabetical->add(c4);
-  l_alphabetical->print();
+  // l_alphabetical->print();
 
   delete l1;
   delete l_alphabetical;

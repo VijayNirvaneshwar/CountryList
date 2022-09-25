@@ -14,6 +14,7 @@ void CountryList::add(Country *in) {
     this->tail = this->head;
   } else {
     this->tail->setNext(n);
+    this->tail->getNext()->setPrevious(tail);
     this->tail = n;
   }
   this->count++;
@@ -48,6 +49,7 @@ void CountryList::removeFront() {
 
   Node *n = this->head;
   this->head = n->getNext();
+  this->head->setPrevious(0);
   this->count--;
   delete n;
 
@@ -64,12 +66,16 @@ void CountryList::removeEnd() {
     return;
   }
 
-  Node *n = this->head;
-  while (n->getNext()->getNext() != 0) n = n->getNext();
-
-  this->tail = n;
+  this->tail = this->tail->getPrevious();
   delete this->tail->getNext();
   this->tail->setNext(0);
+
+//  Node *n = this->head;
+//  while (n->getNext()->getNext() != 0) n = n->getNext();
+//
+//  this->tail = n;
+//  delete this->tail->getNext();
+//  this->tail->setNext(0);
   this->count--;
 
 }
